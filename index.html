@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Správní lidé v autobuse</title>
+<title>Autobus linka 2030</title>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@300;400;500;600&display=swap');
 :root{--ink:#004033;--cream:#f8faf3;--lime:#C4DE00;--border:#A6DECB;--muted:#008066;--red:#c0392b;--red-bg:#fdecea;--yes-bg:#ddf2ea;--maybe-bg:#F3F9C5;}
@@ -40,7 +40,7 @@ header .sub{font-size:.7rem;color:var(--lime);font-weight:500;letter-spacing:.12
 .btn-rm:hover{color:var(--red);}
 
 /* KRITÉRIA */
-.crit-layout{display:grid;grid-template-columns:260px 1fr;gap:24px;align-items:start;}
+.crit-layout{display:grid;grid-template-columns:320px 1fr;gap:24px;align-items:start;}
 .q-panel{background:white;border:1.5px solid var(--border);border-radius:14px;overflow:hidden;box-shadow:0 2px 10px rgba(0,0,0,.04);position:sticky;top:16px;}
 .q-head{padding:18px 20px 14px;}
 .q-head .qnum{font-size:.63rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-bottom:4px;}
@@ -98,7 +98,7 @@ header .sub{font-size:.7rem;color:var(--lime);font-weight:500;letter-spacing:.12
 </head>
 <body>
 <header>
-  <h1>🚌 Správní lidé v autobuse</h1>
+  <h1>🚌 Autobus linka 2030</h1>
   
 </header>
 <div class="tabs">
@@ -112,7 +112,7 @@ header .sub{font-size:.7rem;color:var(--lime);font-weight:500;letter-spacing:.12
 <!-- TÝM -->
 <div class="view active" id="view-team">
   <h2 class="view-title">Kdo je ve hře?</h2>
-  <p class="view-sub">Přidej všechny, které budeš hodnotit. Pak projdi jednotlivé oblasti.</p>
+  
   <div class="add-form">
     <div class="form-row">
       <div class="fg"><label>Jméno</label><input id="inp-name" placeholder="Jana Nováková" onkeydown="if(event.key==='Enter')add()"/></div>
@@ -127,20 +127,19 @@ header .sub{font-size:.7rem;color:var(--lime);font-weight:500;letter-spacing:.12
 <!-- KULTURA -->
 <div class="view" id="view-kultura">
   <h2 class="view-title">Kultura</h2>
-  <p class="view-sub">Otázky jsou vodítko — pro každého udělej jedno rozhodnutí.</p>
   <div class="crit-layout">
     <div class="q-panel">
       <div class="q-head" style="background:#004033;color:white;">
         <div class="qnum" style="color:#C4DE00;">01 · Hodnoty &amp; kultura</div>
-        <h3>Jak se chová v praxi</h3>
+        <h3>Hodnoty vedou naši hru</h3>
         <p style="color:rgba(255,255,255,.6);">Ne co říká — ale co dělá.</p>
       </div>
       <div class="q-body">
-        <div class="cq">Umí přiznat chybu, nebo hledá viníka?</div>
-        <div class="cq">Mluví na rovinu, i když to není pohodlné?</div>
-        <div class="cq">Jde mu/jí o víc než jen o sebe?</div>
-        <div class="cq">Splní, co slíbí?</div>
-        <div class="cq">Hlásí včas, když nestíhá nebo má problém?</div>
+        <div class="cq">Neuhne z hodnot, ani když jde do tuhého?</div>
+        <div class="cq">Umí přiznat chybu a poučit se z ní?</div>
+        <div class="cq">Zvedá problém včas, místo vyčkávání nebo přehazování na ostatní?</div>
+        <div class="cq">Umí dát i přijmout nepříjemný feedback?</div>
+        <div class="cq">Chci ho/ji vedle sebe, když přijde těžké rozhodnutí?</div>
       </div>
     </div>
     <div>
@@ -160,20 +159,19 @@ header .sub{font-size:.7rem;color:var(--lime);font-weight:500;letter-spacing:.12
 <!-- DOPAD -->
 <div class="view" id="view-dopad">
   <h2 class="view-title">Dopad</h2>
-  <p class="view-sub">Otázky jsou vodítko — pro každého udělej jedno rozhodnutí.</p>
   <div class="crit-layout">
     <div class="q-panel">
       <div class="q-head" style="background:#008066;color:white;">
         <div class="qnum" style="color:#E0ED80;">02 · Výkon &amp; samostatnost</div>
-        <h3>Laťku drží sám/sama</h3>
+        <h3>Posouváme hranice</h3>
         <p style="color:rgba(255,255,255,.6);">Track record, ne potenciál.</p>
       </div>
       <div class="q-body">
-        <div class="cq">Jaký byl jeho konkrétní dopad za poslední 3 měsíce?</div>
-        <div class="cq">Dodává výsledky bez toho, aby ho/ji někdo pobízel?</div>
-        <div class="cq">Zvládne dotáhnout věci sám bez neustálého vedení?</div>
-        <div class="cq">Zvládá tempo růstu nebo jen udržuje co funguje?</div>
-        <div class="cq">Díky němu se tým posouvá nebo drží při zemi?</div>
+        <div class="cq">Má za sebou konkrétní výsledky, nejen potenciál?</div>
+        <div class="cq">Dodává nadstandardně i bez vnějšího tlaku?</div>
+        <div class="cq">Zvládá růstové tempo, nejen běžnou operativu?</div>
+        <div class="cq">Zvedá laťku týmu?</div>
+        <div class="cq">Kdybych stavěl/a tým znovu pro rok 2030, je pro mě jasná volba?</div>
       </div>
     </div>
     <div>
@@ -193,20 +191,19 @@ header .sub{font-size:.7rem;color:var(--lime);font-weight:500;letter-spacing:.12
 <!-- MINDSET -->
 <div class="view" id="view-mindset">
   <h2 class="view-title">Změnový mindset</h2>
-  <p class="view-sub">Otázky jsou vodítko — pro každého udělej jedno rozhodnutí.</p>
   <div class="crit-layout">
     <div class="q-panel">
       <div class="q-head" style="background:#A6DECB;color:#004033;">
         <div class="qnum" style="color:#004033;opacity:.7;">03 · Změnový mindset</div>
-        <h3>Učí se rychleji,<br>než se mění hra</h3>
-        <p style="color:rgba(0,64,51,.65);">Přebírá iniciativu a roste s firmou.</p>
+        <h3>Učení je nezbytnou<br>součástí hry</h3>
+        <p style="color:rgba(0,64,51,.65);">Hledá lepší cestu.</p>
       </div>
       <div class="q-body">
-        <div class="cq">Hledá lepší cestu, nebo brání zajeté pořádky?</div>
-        <div class="cq">Přebírá iniciativu a nečeká na zadání?</div>
-        <div class="cq">Zvládne vyšší tempo a větší komplexitu?</div>
-        <div class="cq">Pomáhá týmu se změnou nebo mu ubírá energii?</div>
-        <div class="cq">Pracuje na sobě a drží tempo s firmou?</div>
+        <div class="cq">Změnu nebrzdí, ale zrychluje?</div>
+        <div class="cq">Je vzorem pro tým v hledání inspirace a příležitostí ke zlepšení současného stavu?</div>
+        <div class="cq">Novou dovednost snadno aplikuje v praxi?</div>
+        <div class="cq">Pro změnu umí nadchnout i ostatní, je leaderem změny?</div>
+        <div class="cq">Když vidí problém, přijde s řešením – nejen s pojmenováním?</div>
       </div>
     </div>
     <div>
@@ -226,7 +223,7 @@ header .sub{font-size:.7rem;color:var(--lime);font-weight:500;letter-spacing:.12
 <!-- AUTOBUS -->
 <div class="view" id="view-bus">
   <h2 class="view-title">Autobus</h2>
-  <p class="view-sub">V autobuse jsou ti, kdo prošli ve všech třech oblastech.</p>
+  
   <div class="bus-svg-card">
     <svg viewBox="0 0 420 200" xmlns="http://www.w3.org/2000/svg">
       <!-- Shadow -->
@@ -425,7 +422,7 @@ function exportPDF(){
   const date=new Date().toLocaleDateString('cs-CZ',{day:'numeric',month:'long',year:'numeric'});
   const html=`<!DOCTYPE html><html lang="cs"><head><meta charset="UTF-8"><title>Report</title><style>@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;500;600&display=swap');*{box-sizing:border-box;margin:0;padding:0;}body{font-family:'Inter',sans-serif;background:white;color:#1c1c1e;padding:48px;max-width:800px;margin:0 auto;}@media print{.np{display:none;}body{padding:24px;}}</style></head><body>
   <div style="border-bottom:3px solid #C4DE00;padding-bottom:16px;margin-bottom:28px;display:flex;justify-content:space-between;align-items:flex-end;">
-    <div><div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:#008066;margin-bottom:4px;">Jim Collins · Good to Great</div><h1 style="font-family:'Playfair Display',serif;font-size:24px;">Správní lidé v autobuse</h1></div>
+    <div><div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:#008066;margin-bottom:4px;">Jim Collins · Good to Great</div><h1 style="font-family:'Playfair Display',serif;font-size:24px;">Autobus linka 2030</h1></div>
     <div style="text-align:right;font-size:12px;color:#888;">${date}<br>Hodnocených: <strong>${people.length}</strong></div>
   </div>
   <p style="font-size:11px;color:#888;margin-bottom:20px;">Skóre: ✅✅✅ = Kultura · Dopad · Mindset</p>
