@@ -1,0 +1,79 @@
+---
+description: Instructions for deploying a static HTML app to GitHub Pages
+alwaysApply: false
+---
+
+# GitHub Pages Deploy – Static HTML App
+
+## Prerequisites (already installed on this machine)
+
+- **Git** `2.45.1` – configured as `Jakub Lada <Jakub.Lada@direct.cz>`
+- **GitHub CLI** `gh 2.87.3` – authenticated as **Alcarno** via `gh auth login --web`
+- **Python** with `qrcode[pil]` package – for generating QR codes
+
+## PowerShell notes
+
+This machine runs **PowerShell** (not bash). Key differences:
+- Use `;` instead of `&&` to chain commands
+- HEREDOC (`<<'EOF'`) does NOT work – pass commit messages as simple strings
+- Refresh PATH after installing tools: `$env:Path = [System.Environment]::GetEnvironmentVariable("Path","Machine") + ";" + [System.Environment]::GetEnvironmentVariable("Path","User")`
+
+## Deploy steps
+
+### 1. Prepare the project
+- Main HTML file MUST be named `index.html` (GitHub Pages serves it by default)
+- Rename if needed: `Rename-Item "old-name.html" "index.html"`
+
+### 2. Initialize Git and commit
+```powershell
+git init
+git add -A
+git commit -m "Initial commit: <short description>"
+```
+
+### 3. Create public GitHub repo and push
+```powershell
+gh repo create <repo-name> --public --source=. --remote=origin --push
+```
+
+### 4. Enable GitHub Pages (legacy deploy from branch)
+```powershell
+gh api repos/Alcarno/<repo-name>/pages -X POST -f "build_type=workflow" -f "source[branch]=master" -f "source[path]=/"
+gh api repos/Alcarno/<repo-name>/pages -X PUT -f "build_type=legacy" -f "source[branch]=master" -f "source[path]=/"
+```
+
+### 5. Trigger first build manually (often needed)
+```powershell
+gh api repos/Alcarno/<repo-name>/pages/builds -X POST
+```
+
+### 6. Verify build status
+```powershell
+gh api repos/Alcarno/<repo-name>/pages/builds/latest
+```
+Wait until `"status":"built"` appears. Usually takes 30-60 seconds.
+
+### 7. Live URL
+```
+https://alcarno.github.io/<repo-name>/
+```
+
+## Subsequent updates
+```powershell
+git add -A
+git commit -m "<message>"
+git push origin master
+```
+GitHub Pages rebuilds automatically on push. Takes ~1-2 minutes.
+
+## Rename repository (changes URL)
+```powershell
+gh repo rename <new-name> --yes
+git remote set-url origin https://github.com/Alcarno/<new-name>.git
+```
+Old URL auto-redirects to new one.
+
+## Generate QR code for the page
+```powershell
+python -c "import qrcode; img = qrcode.make('https://alcarno.github.io/<repo-name>/'); img.save('qr-code.png')"
+```
